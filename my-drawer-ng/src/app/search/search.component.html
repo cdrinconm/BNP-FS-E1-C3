@@ -8,6 +8,28 @@
 </ActionBar>
 
 <StackLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf002;"></Label>
-  <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>
+  <Label class="page__content-icon fas" text="&#xf002;"></Label><!--
+  <SearchForm (search)="buscarAhora($event)" [inicial]="'Vale'"></SearchForm>-->
+        <PullToRefresh (refresh)="onPull($event)">
+            <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
+            style="height: 1250px">
+                <ng-template let-x="item">
+                    <FlexBoxLayout flexDirection="row" class="list-group-item">
+                        <Image src="res://icon" class="thumb img-circle" style="width: 25%"></Image>
+                        <Label class="texto" [text]="x" class="list-group-item-heading" style="width: 100%"> </Label><!--
+                        <span></span>
+                        <Button class="-primary" (tap)="setFavorite(x)">
+                            <FormattedString>
+                                <Span text="&#xf099;" fontFamily="Ionicons"></Span>
+                                <Span text=" Button.-primary with icon"></Span>
+                            </FormattedString>
+                        </Button>
+                        <Button text="Borrar" class="btn" (tap)="onDelete(x)" style="width: 25%"></Button>
+                        <Button text="Detalle" class="btn" (tap)="onDetalle(x)" style="width: 25%"></Button>
+                        <Image src="res://icon" class="thumb img-circle" (longPress)="onLongPress(x)" style="width: 25%"></Image>
+                        <label [text]="x" class="list-group-item-heading" verticalAlignament="center" style="width: 60%"></label>-->
+                    </FlexBoxLayout>
+                </ng-template>
+            </ListView>
+        </PullToRefresh>
 </StackLayout>

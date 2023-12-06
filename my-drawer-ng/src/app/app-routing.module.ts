@@ -24,6 +24,14 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('~/app/settings/settings.module').then((m) => m.SettingsModule),
   },
+  {
+    path: 'componente1',
+    loadChildren: () => import('~/app/componente1/componente1.module').then((m) => m.Componente1Module),
+  },
+  {
+    path: 'componente2',
+    loadChildren: () => import('~/app/componente2/componente2.module').then((m) => m.Componente2Module),
+  },
 ]
 
 @NgModule({
