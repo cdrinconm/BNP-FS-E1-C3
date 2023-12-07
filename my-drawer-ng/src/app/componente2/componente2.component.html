@@ -11,19 +11,15 @@
   <Label class="page__content-icon fas" text="&#xf002;"></Label>
   <PullToRefresh (refresh)="onPull($event)">
     <ListView class="list-group" [items]="this.resultados" style="height: 1250px">
-          <ng-template let-x="item"><!--
-            <GridLayout column="auto, *, auto" rows="aunto, 25" verticalAligment="top" backgroundColor="lightgray">
+          <ng-template let-x="item">
+            <GridLayout colums="auto, *, auto" rows="auto, 25" verticalAlignment="top" backgroudcolor="lightgray">
               <Image src="res://icon" rowSpan="2" width="72" height="72" margin="3" verticalAligment="top"/>
-              <Label class="texto" [text]="x" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"> </Label>
-              <Label class="texto" [text]="x" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"> </Label>
-            </GridLayout>-->
-
-            <FlexboxLayout flexDirection="row" class="list-group-item">
-              <Image src="res://icon" class="thumb img-circle" ></Image>
-              <Label [text]="x" class="list-group-item-heading"
-              verticalAlignment="center" style="width: 60%">
-              </Label>
-              </FlexboxLayout>
+              <StackLayout>
+                <Label [text]="x.Usuario" textWrap="true" col="1" colSpan="2" minHeight="30" fontSize="20" margin="3"></Label>
+                <Label [text]="x.Fecha" textWrap="true" col="1" colSpan="2" minHeight="30" fontSize="20" margin="3"></Label>
+                <Label [text]="x.Texto" textWrap="true" col="1" colSpan="2" minHeight="30" fontSize="20" margin="3"></Label>
+              </StackLayout>
+            </GridLayout>
           </ng-template>
       </ListView>
   </PullToRefresh>

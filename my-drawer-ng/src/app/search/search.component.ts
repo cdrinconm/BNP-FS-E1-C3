@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
-import { Application } from '@nativescript/core'
+import { Application, Color, View } from '@nativescript/core'
 import { NoticiasService } from '../domain/noticias.service'
 
 @Component({
@@ -10,7 +10,7 @@ import { NoticiasService } from '../domain/noticias.service'
 export class SearchComponent implements OnInit {
   resultados: Array<String> = [];
 
-   @ViewChild("layout", { static: false }) layout: ElementRef;
+   @ViewChild("layout") layout: ElementRef;
 
     constructor(
         private noticias: NoticiasService/*,
@@ -68,7 +68,7 @@ export class SearchComponent implements OnInit {
       //SocialShare.shareText(s, "Asunto: compartido desde el curso");
   }
 
-  buscarAhora(s: string) {/*
+  buscarAhora(s: string) {
     console.dir("buscarAhora() " + s);
     this.noticias.buscar(s).then(
         (r: any) => {
@@ -76,11 +76,11 @@ export class SearchComponent implements OnInit {
             this.resultados = r;
         },
         e => {
-            console.log("Error buscarAhora() " + e);
+            console.log("Error buscarAhora() " + e);/*
             Toast.show({
                 text: "Error en la busqueda",
                 duration: Toast.DURATION.SHORT
-            });
+            });*/
         }
     );
     /*
@@ -102,5 +102,6 @@ export class SearchComponent implements OnInit {
                 delay: 150
             })
         );*/
-  }
 }
+}
+

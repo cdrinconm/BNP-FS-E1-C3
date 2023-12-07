@@ -7,7 +7,22 @@
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf005;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout>
+  <Label class="h3 text-center m-y-10" text="Aplicaciones Moviles"></Label> 
+  <Image src="~/images/home.png"></Image>
+  <Label class="fondo footnote text-center m-y-10" text="Copyright ©2019"></Label> 
+  <StackLayout orientation="horizontal" horizontalAlignment="center">
+      <Button text="Opiniones" class="btn " (tap)="onNavButtom('/featured1')"></Button>
+      <Button text="Comentarios" class="btn btn-default" (tap)="onNavButtom('/featured2')"></Button>
+  </StackLayout>
+
+  <GridLayout class="page__content">
+      <Label class="page__content-icon fas" text="&#xf005;"></Label>
+      <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+
+      <GridLayout class="bg-primary p-15 m-15" width="200" height="200"
+          (longPress)="onLongPress($event)">
+          <Image class="img-rounded" src="res://icon" stretch="none"></Image>
+      </GridLayout>
+  </GridLayout>
+</StackLayout>

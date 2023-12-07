@@ -1,14 +1,26 @@
 import { Injectable } from '@angular/core';
+import { getJSON, request } from '@nativescript/core/http';
 
 @Injectable()
 export class NoticiasService {
-    private noticias: Array<String> = [];
+    api: string = "http://localhost:3000";
 
     agregar(s:string){
-        this.noticias.push(s);
+        return request({
+            url: this.api + "/favs",
+            method:"POST",
+            headers:{"Content-Type" : "application/json"},
+            content : JSON.stringify({
+                nuevo:s
+            })
+        });
     }
 
-    buscar(){
-        return this.noticias;
+    favs() {
+        return getJSON(this.api + "/favs");
+    }
+
+    buscar (s: string) {
+        return getJSON(this.api + "/get?q="+s)
     }
 }
